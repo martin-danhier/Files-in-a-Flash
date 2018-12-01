@@ -26,4 +26,4 @@ Ca peut faire peur au début, mais on s'y habitue vite et c'est pas si compliqu�
 
 - **Ne jamais commit directement dans master** (je m'occuperai des merges) => préférez créer une nouvelle branche à partir de master et travaillez dedans. Une fois que vous êtes contents de votre code, vous pouvez faire une pull request (une demande de merge) et je mergerai tout ça dans master si c'est bon et sans bugs. Il faut que le code dans master soit nickel, sans bugs, ni rien (final quoi); c'est pourquoi c'est préférable de travailler parallèlement
 
-- Pour faire une pull request, allez juste dans l'onglet [Pull Requests](https://github.com/martin-danhier/Mazemerising-Cat/pulls) du repo et faites "nouvelle pull request". Sélectionnez votre branche (exemple : martin-branch) dans 'compare' et master dans 'base'. Ensuite vous validez :)
+- Pour faire une pull request, allez juste dans l'onglet [Pull Requests](https://github.com/martin-danhier/Files-in-a-Flash/pulls) du repo et faites "nouvelle pull request". Sélectionnez votre branche (exemple : martin-branch) dans 'compare' et master dans 'base'. Ensuite vous validez :)
