@@ -4,6 +4,11 @@
 2. Faites vos modifications (ctrl+v, ou directement dans l'éditeur en ligne)
 3. Tout en bas, dans "Titre", décrivez en 2 mots ce que vous avez fait (ex: "Spécification de get_frequences")
 4. Sélectionnez **Créer une nouvelle branche et créer une pull request**, et puis cliquez sur le bouton vert "Propose file changes".
+5. Cliquez sur le bouton "Créer une pull request" .
+
+**Vous avez donc proposé les changements dans une pull request, et j'irai checker si c'est bien.**
+- Si c'est bien : je mergerai vos changements dans la branche master (qui contient uniquement le code clean et sans bugs, pour éviter justement des mauvaises blagues).
+- S'il faut changer quelque chose (exemples : syntax error, ou pylint pas content), je vous le dirai soit en répondant à la pull request, soit sur discord. À ce moment là, vous pouvez éditer vos changements
 
 
 
