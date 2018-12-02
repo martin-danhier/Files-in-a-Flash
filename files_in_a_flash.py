@@ -86,7 +86,7 @@ def check_accuracy(path):
     ----------
     path : The path (str) to the main directory.
 
-        Notes
+    Notes
     -----
     The main directory should countain :
         - labels.txt
