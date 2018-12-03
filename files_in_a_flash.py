@@ -76,7 +76,7 @@ def get_theme_prob(theme_frequencies, list_words):
     --------
     get_words to get the list of the useful words in a text file.
     get_frequencies and check_frequencies to create the theme_frequencies dictionary."""
-    pass
+    print ('hello')
 
 
 def check_accuracy(path):
