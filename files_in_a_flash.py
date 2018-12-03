@@ -14,7 +14,7 @@ def files_in_a_flash(path):
         - a sub-directory named 'sorted' that countains the sorted files to learn from.
         - a sub-directory named 'unsorted' that countains the files to sort.
     """
-    #hi
+    #hello dickhead
 
 def get_words(path):
     """ Creates a list of all useful words in the given text file.
