@@ -53,10 +53,11 @@ def check_differences(frequencies):
     -----
     The frequencies dictonary is edited: the theme_frequencies dictionaries may be lenghtened.
     All theme_frequencies dictionaries should be of the same size afterwards.
+    Each theme_frequencies dictionary is of format { word (str) : frequency (float) }.
 
     See also
     --------
-    get_frequencies to create the theme_frequencies dictionaries.
+    get_frequencies to create the frequencies dictionary.
     """
 
     checked_words = []
