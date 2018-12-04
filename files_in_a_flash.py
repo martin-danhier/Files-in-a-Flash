@@ -30,7 +30,7 @@ def get_words(path):
     pass
 
 def get_frequencies(path):
-    """ Creates a dictionary that countains the frequency of each useful word in the given theme.
+    """ Creates a dictionary that countains the frequency of each useful word in each theme.
 
     Parameters
     ----------
@@ -38,7 +38,11 @@ def get_frequencies(path):
 
     Returns
     -------
-    theme_frequencies : a dictionary of format { word (str) : frequency (float) }.
+    frequencies : a dictionary of format { theme (str) : theme_frequencies (dict) }.
+    
+    Notes
+    -----
+    Each theme_frequencies dictionary is of format { word (str) : frequency (float) }.
     """
     pass
 
