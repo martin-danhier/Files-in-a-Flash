@@ -27,7 +27,34 @@ def get_words(path):
     -------
     words : a list of all useful words in the text file.
     """
-    pass
+    # Get text from the given file.
+    current_file = open(path, 'r')
+    text = current_file.read().lower()
+    current_file.close()
+
+    #Define the useless words/elements.
+    useless_elements = ['\n', '/', '\t', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ', ',
+                        '?', '!', '.', ';', '-', '\'', '(', ')', '@', '>', '<', ':', ' you ',
+                        ' they ', ' she ', ' he ', ' it ', ' your ', ' their ', ' we ', ' is ',
+                        ' are ', ' have ', ' has ', ' or ', ' and ', ' an ', ' the ', ' of ',
+                        ' in ', ' to ', ' if ', ' to ', ' for ', ' them ', ' my ', ' me ', ' its ',
+                        ' yours ', ' as ', 'from ', ' by ', ' on ', ' will ', ' not ', ' no ',
+                        ' yes ', ' any ', ' be ', ' etc ', ' but ', ' would ', ' been ', ' had ',
+                        ' this ']
+
+    #Replace each useless element by a space.
+    for element in useless_elements:
+        text = str.replace(text, element, ' ')
+
+    #Put all words in a list.
+    words_list = text.split(' ')
+
+    #Create and return a list of every useful words.
+    useful_list = []
+    for word in words_list:
+        if not word in useful_list and len(word) > 1:
+            useful_list.append(word)
+    return useful_list
 
 def get_frequencies(path):
     """ Creates a dictionary that countains the frequency of each useful word in the given theme.
