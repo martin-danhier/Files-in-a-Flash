@@ -17,7 +17,7 @@ def files_in_a_flash(path):
         - a sub-directory named 'sorted' that countains the sorted files to learn from.
         - a sub-directory named 'unsorted' that countains the files to sort.
     """
-    pass
+
 
 def get_words(path):
     """ Creates a list of all useful words in the given text file.
@@ -74,6 +74,7 @@ def get_words(path):
             useful_list.append(word)
     return useful_list
 
+
 def get_frequencies(path):
     """ Creates a dictionary that countains the frequency of each useful word in each theme.
 
@@ -119,6 +120,7 @@ def get_frequencies(path):
 
     return frequencies
 
+
 def check_differences(frequencies):
     """ Checks the given frequencies in order to have the same word list in each theme.
 
@@ -156,7 +158,6 @@ def check_differences(frequencies):
                 checked_words.append(word)
 
 
-
 def get_theme_prob(theme_frequencies, list_words):
     """Computes the probability that the word list matches the given theme.
 
@@ -186,6 +187,7 @@ def get_theme_prob(theme_frequencies, list_words):
             probability += math.log(1 - theme_frequencies[word])
 
     return probability
+
 
 def check_accuracy(path):
     """ Checks if the files are correctly sorted in  and prints the accuracy.
