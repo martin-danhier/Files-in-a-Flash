@@ -34,7 +34,7 @@ def get_frequencies(path):
 
     Parameters
     ----------
-    path: the path to the theme directory to evaluate. (str)
+    path: the path to the sorted directory (str).
 
     Returns
     -------
