@@ -44,7 +44,33 @@ def get_frequencies(path):
     -----
     Each theme_frequencies dictionary is of format { word (str) : frequency (float) }.
     """
-    pass
+    #Initialize the frequencies dictionary
+    frequencies = {}
+
+    #For each theme
+    for theme in os.listdir(path):
+
+        #Create the theme_frequencies dictionary
+        frequencies[theme] = {}
+
+        #For each word of each file of this theme
+        for current_file in os.listdir('%s/%s' % (path, theme)):
+            for word in get_words('%s/%s/%s' % (path, theme, current_file)):
+
+                # Add 1 to the number of occurences of word in this theme
+                if word in frequencies[theme]:
+                    frequencies[theme][word] += 1
+                else:
+                    frequencies[theme][word] = 1
+
+    #Equalize every theme_frequencies dictionary
+    check_differences(frequencies)
+
+    #Divide the frequency of each file in each theme by the number of files in that theme
+    for theme in frequencies:
+        nb_files = len(os.listdir('%s/%s' % (path, theme)))
+        for word in frequencies[theme]:
+            frequencies[theme][word] /= nb_files
 
 def check_differences(frequencies):
     """ Checks the given frequencies in order to have the same word list in each theme.
