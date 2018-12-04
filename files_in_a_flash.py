@@ -33,14 +33,29 @@ def get_words(path):
     current_file.close()
 
     #Define the useless words/elements.
-    useless_elements = ['\n', '/', '\t', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ', ',
-                        '?', '!', '.', ';', '-', '\'', '(', ')', '@', '>', '<', ':', ' you ',
-                        ' they ', ' she ', ' he ', ' it ', ' your ', ' their ', ' we ', ' is ',
-                        ' are ', ' have ', ' has ', ' or ', ' and ', ' an ', ' the ', ' of ',
-                        ' in ', ' to ', ' if ', ' to ', ' for ', ' them ', ' my ', ' me ', ' its ',
-                        ' yours ', ' as ', 'from ', ' by ', ' on ', ' will ', ' not ', ' no ',
-                        ' yes ', ' any ', ' be ', ' etc ', ' but ', ' would ', ' been ', ' had ',
-                        ' this ']
+    useless_elements = ['\n', '/', '\t', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',',
+                        '"', '?', '!', '.', ';', '-', '\'', '(', ')', '@', '>', '<', ':', '*', '}',
+                        '{', '[', ']', '$', '^', '~', '#', '&', '%', '+', '_', '=', '€', '£',
+                        ' you ', ' they ', ' she ', ' he ', ' it ', ' your ', ' their ', ' we ',
+                        ' is ', ' are ', ' have ', ' has ', ' or ', ' and ', ' an ', ' the ',
+                        ' of ', ' in ', ' to ', ' if ', ' to ', ' for ', ' them ', ' my ', ' me ',
+                        ' its ', ' yours ', ' as ', 'from ', ' by ', ' on ', ' will ', ' not ',
+                        ' no ', ' yes ', ' any ', ' be ', ' etc ', ' but ', ' would ', ' been ',
+                        ' had ', ' this ', ' off ', ' up ', ' down ', ' right ', ' left ', ' per ',
+                        ' year ', ' am ', ' all ', ' his ', ' her ', ' our ', ' their ', ' at ',
+                        ' who ', ' can ', ' very ', ' much ', ' know ', ' how ', ' get ', ' just ',
+                        ' thanks ', ' where ', ' out ', ' that ', ' with ', ' last ', ' few ',
+                        ' so ', ' two ', ' one ', ' three ', ' four ', ' five ', ' six ', ' com ',
+                        ' seven ', ' eight ', ' nine ', ' ten ', ' eleven ', ' most ', ' must ',
+                        ' some ', ' need ', ' most ', ' january ', ' february ', ' march ',
+                        ' april ', ' may ', ' june ', ' july ', ' august ', ' september ', ' why ',
+                        ' october ', ' november ', ' december ', ' old ', ' re ', ' subject ',
+                        ' tough ', ' best ', ' good ', ' was ', ' what ', ' lot ', ' every ',
+                        ' other ', ' while ', ' day ', ' ever ', ' about ', ' said ', ' let ',
+                        ' since ', ' also ', ' say ', ' did ', ' here ', ' there ', ' nor ',
+                        ' going ', ' fact ', ' us ', ' do ', ' feel ', ' only ', ' thing ',
+                        ' which ', ' bit ', ' luck ', ' ll ', ' great ', ' enough ', ' first ',
+                        ' between ', ' reply ', ' when ', ' does ', ' such ']
 
     #Replace each useless element by a space.
     for element in useless_elements:
