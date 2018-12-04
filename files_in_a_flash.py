@@ -1,4 +1,5 @@
 """An implementation of Naive Bayes to sort files by theme."""
+import os
 
 def files_in_a_flash(path):
     """ Sorts files in the 'unsorted' directory (see notes) by theme.
@@ -72,17 +73,49 @@ def get_words(path):
     return useful_list
 
 def get_frequencies(path):
-    """ Creates a dictionary that countains the frequency of each useful word in the given theme.
+    """ Creates a dictionary that countains the frequency of each useful word in each theme.
 
     Parameters
     ----------
-    path: the path to the theme directory to evaluate. (str)
+    path: the path to the sorted directory (str).
 
     Returns
     -------
-    theme_frequencies : a dictionary of format { word (str) : frequency (float) }.
+    frequencies : a dictionary of format { theme (str) : theme_frequencies (dict) }.
+
+    Notes
+    -----
+    Each theme_frequencies dictionary is of format { word (str) : frequency (float) }.
     """
-    pass
+    #Initialize the frequencies dictionary
+    frequencies = {}
+
+    #For each theme
+    for theme in os.listdir(path):
+
+        #Create the theme_frequencies dictionary
+        frequencies[theme] = {}
+
+        #For each word of each file of this theme
+        for current_file in os.listdir('%s/%s' % (path, theme)):
+            for word in get_words('%s/%s/%s' % (path, theme, current_file)):
+
+                # Add 1 to the number of occurences of word in this theme
+                if word in frequencies[theme]:
+                    frequencies[theme][word] += 1
+                else:
+                    frequencies[theme][word] = 1
+
+    #Equalize every theme_frequencies dictionary
+    check_differences(frequencies)
+
+    #Divide the frequency of each file in each theme by the number of files in that theme
+    for theme in frequencies:
+        nb_files = len(os.listdir('%s/%s' % (path, theme)))
+        for word in frequencies[theme]:
+            frequencies[theme][word] /= nb_files
+
+    return frequencies
 
 def check_differences(frequencies):
     """ Checks the given frequencies in order to have the same word list in each theme.
