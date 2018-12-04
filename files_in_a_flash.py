@@ -1,5 +1,7 @@
 """An implementation of Naive Bayes to sort files by theme."""
+import math
 import os
+
 
 def files_in_a_flash(path):
     """ Sorts files in the 'unsorted' directory (see notes) by theme.
@@ -165,14 +167,25 @@ def get_theme_prob(theme_frequencies, list_words):
 
     Returns
     -------
-    probability: the probability that the file belongs to the given theme.
+    probability: the probability that the file belongs to the given theme. (float)
 
     See also
     --------
     get_words to get the list of the useful words in a text file.
-    get_frequencies and check_frequencies to create the theme_frequencies dictionary."""
-    pass
+    get_frequencies and check_frequencies to create the theme_frequencies dictionary.
+    """
+    probability = 0
 
+    #For each word
+    for word in theme_frequencies:
+
+        #Add the log of the probability that this word is/isn't in this theme
+        if word in list_words: #is
+            probability += math.log(theme_frequencies[word])
+        else: #isn't
+            probability += math.log(1 - theme_frequencies[word])
+
+    return probability
 
 def check_accuracy(path):
     """ Checks if the files are correctly sorted in  and prints the accuracy.
