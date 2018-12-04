@@ -18,6 +18,40 @@ def files_in_a_flash(path):
         - a sub-directory named 'unsorted' that countains the files to sort.
     """
 
+    #Learning
+    print('Learning...')
+    frequencies = get_frequencies('%s/sorted' % path)
+
+    #Sorting
+    print('Learning done. Sorting...')
+
+    #For each file in unsorted
+    file_counter = 1
+    nb_files = len(os.listdir('%s/unsorted' % path))
+    for current_file in os.listdir('%s/unsorted' % path):
+
+        #Compute the probability that it belongs to each theme
+        word_list = get_words('%s/unsorted/%s' % (path, current_file))
+        theme_probs = {}
+        for theme in frequencies:
+            theme_probs[theme] = get_theme_prob(frequencies[theme], word_list)
+
+        #Get the max
+        max = list(theme_probs.keys())[0] #Get a theme to begin with
+        max_value = theme_probs[max]
+        for theme in theme_probs:
+            if theme_probs[theme] > max_value:
+                max = theme
+                max_value = theme_probs[theme]
+
+
+        #Print result
+        print('File %s: %s (%d/%d)' % (current_file, max, file_counter, nb_files))
+        file_counter += 1
+
+        #Move the file in the corresponding directory
+        os.rename('%s/unsorted/%s' % (path, current_file), '%s/sorted/%s/%s' % (path, max, current_file))
+
 
 def get_words(path):
     """ Creates a list of all useful words in the given text file.
