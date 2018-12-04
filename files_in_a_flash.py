@@ -60,24 +60,30 @@ def check_differences(frequencies):
     """
     pass
 
+import math
 def get_theme_prob(theme_frequencies, list_words):
     """Computes the probability that the word list matches the given theme.
-
     Parameters
     ----------
     theme_frequencies: a dictionary of format { word (str) : frequency (float) }
     list_words: a list of useful words from a text file (str).
-
     Returns
     -------
     probability: the probability that the file belongs to the given theme.
-
     See also
     --------
     get_words to get the list of the useful words in a text file.
     get_frequencies and check_frequencies to create the theme_frequencies dictionary."""
-    pass
-
+    probability = 0
+    for word in theme_frequencies:
+        # check if the word is in the list_word
+        if word in list_words:
+        # calculate the probability that the word is in the theme
+            probability += math.log(theme_frequencies[word])
+        # calculate the probability that the word isn't in the theme
+        else:
+            probability += math.log(1 - theme_frequencies[word])
+    return probability
 
 def check_accuracy(path):
     """ Checks if the files are correctly sorted in  and prints the accuracy.
