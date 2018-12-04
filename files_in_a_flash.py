@@ -58,7 +58,26 @@ def check_differences(frequencies):
     --------
     get_frequencies to create the theme_frequencies dictionaries.
     """
-    pass
+
+    checked_words = []
+    # For each word
+    for theme in frequencies:
+        for word in frequencies[theme]:
+
+            #Avoid to check the same word several times
+            if not word in checked_words:
+
+                #Check every other theme to see if it countains the word
+                for other_theme in frequencies:
+
+                    if other_theme != theme and not word in frequencies[other_theme]:
+                        #Add the word
+                        frequencies[other_theme][word] = 1
+
+                #add the word to the list so it's not checked anymore
+                checked_words.append(word)
+
+
 
 def get_theme_prob(theme_frequencies, list_words):
     """Computes the probability that the word list matches the given theme.
