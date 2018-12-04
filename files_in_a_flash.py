@@ -1,4 +1,5 @@
 """An implementation of Naive Bayes to sort files by theme."""
+import os
 
 def files_in_a_flash(path):
     """ Sorts files in the 'unsorted' directory (see notes) by theme.
@@ -39,7 +40,7 @@ def get_frequencies(path):
     Returns
     -------
     frequencies : a dictionary of format { theme (str) : theme_frequencies (dict) }.
-    
+
     Notes
     -----
     Each theme_frequencies dictionary is of format { word (str) : frequency (float) }.
@@ -71,6 +72,8 @@ def get_frequencies(path):
         nb_files = len(os.listdir('%s/%s' % (path, theme)))
         for word in frequencies[theme]:
             frequencies[theme][word] /= nb_files
+
+    return frequencies
 
 def check_differences(frequencies):
     """ Checks the given frequencies in order to have the same word list in each theme.
