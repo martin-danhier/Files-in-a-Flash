@@ -106,7 +106,13 @@ def get_words(path):
                         ' next ', ' neither ', ' either ', ' else ', ' anybody ', ' anyone ',
                         ' month ', ' week ', ' weekend ', ' end ', ' start ', ' yet ', ' yep ',
                         ' until ', ' till ', ' then ', ' away ', ' bad ', ' good ', ' high ',
-                        ' below ']
+                        ' below ', ' good ', ' bad ', ' years ', ' ago ', ' later ', ' better ',
+                        ' same ', ' under ', ' actually ', ' fine ', ' bother ', ' cannot ',
+                        ' case ', ' fact ', ' should ', ' wouldn ', ' far ', ' think ', ' thought ',
+                        ' without ', ' instead ', ' now ', ' times ', ' great ', ' afternoon ',
+                        ' noon ', ' night ', ' midnight ', ' front ', ' several ', ' another ',
+                        ' inc ', ' were ', ' earlier ', ' early ', ' ask ', ' asked ', ' asks ',
+                        ' make ', ' makes ', ' made ']
 
     #Replace each useless element by a space.
     for element in useless_elements:
@@ -222,6 +228,10 @@ def get_theme_prob(theme_frequencies, list_words):
     --------
     get_words to get the list of the useful words in a text file.
     get_frequencies and check_frequencies to create the theme_frequencies dictionary.
+
+    :Example:
+        >>> get_theme_prob({'apple' : 0.5, 'gun' : 0.01, 'banana': 0.2 }, ['apple', 'banana', 'eat'])
+        -1.00436480540245
     """
     probability = 0
 
@@ -230,9 +240,9 @@ def get_theme_prob(theme_frequencies, list_words):
 
         #Add the log of the probability that this word is/isn't in this theme
         if word in list_words:
-            probability += math.log(theme_frequencies[word])
+            probability += math.log10(theme_frequencies[word])
         elif theme_frequencies[word] < 1: #Check if the frequency is in the domain of log
-            probability += math.log(1 - theme_frequencies[word])
+            probability += math.log10(1 - theme_frequencies[word])
         else:
             probability -= 999999 #log(0) -> minus infinity
 
@@ -270,3 +280,9 @@ def check_accuracy(path):
 
     #Display result
     print('Accuracy : %.3f' % (correct_answers/len(lines)))
+
+ 
+ #Testing with doctest
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
