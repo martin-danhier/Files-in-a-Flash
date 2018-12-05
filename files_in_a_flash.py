@@ -65,7 +65,7 @@ def get_words(path):
     words : a list of all useful words in the text file.
     """
     # Get text from the given file.
-    current_file = open(path, 'r')
+    current_file = open(path, 'r', encoding='ISO-8859-1')
     text = current_file.read().lower()
     current_file.close()
 
@@ -215,10 +215,12 @@ def get_theme_prob(theme_frequencies, list_words):
     for word in theme_frequencies:
 
         #Add the log of the probability that this word is/isn't in this theme
-        if word in list_words: #is
+        if word in list_words:
             probability += math.log(theme_frequencies[word])
-        else: #isn't
+        elif theme_frequencies[word] < 1: #Check if the frequency is in the domain of log
             probability += math.log(1 - theme_frequencies[word])
+        else:
+            probability -= 999999 #log(0) -> minus infinity
 
     return probability
 
@@ -237,4 +239,20 @@ def check_accuracy(path):
         - a sub-directory named 'sorted' that countains the sorted files.
         - a sub-directory named 'unsorted' that countains the files to sort. (should be empty)
     """
-    pass
+
+    #Read the solution from labels.txt
+    label_file = open('%s/labels.txt' % path, 'r', encoding='ISO-8859-1')
+    lines = label_file.readlines()
+    label_file.close()
+
+    #Initialize a counter
+    correct_answers = 0
+
+    #Count every correct answer
+    for line in lines:
+        solution = line.strip('\n').split(' ')
+        if os.path.exists('%s/sorted/%s/%s' % (path, solution[1], solution[0])):
+            correct_answers += 1
+
+    #Display result
+    print('Accuracy : %.3f' % (correct_answers/len(lines)))
