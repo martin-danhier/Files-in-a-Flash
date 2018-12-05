@@ -69,7 +69,7 @@ def get_words(path):
     text = current_file.read().lower()
     current_file.close()
 
-    #Define the useless words/elements.
+        #Define the useless words/elements.
     useless_elements = ['\n', '/', '\t', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',',
                         '"', '?', '!', '.', ';', '-', '\'', '(', ')', '@', '>', '<', ':', '*', '}',
                         '{', '[', ']', '$', '^', '~', '#', '&', '%', '+', '_', '=', '€', '£',
@@ -92,7 +92,21 @@ def get_words(path):
                         ' since ', ' also ', ' say ', ' did ', ' here ', ' there ', ' nor ',
                         ' going ', ' fact ', ' us ', ' do ', ' feel ', ' only ', ' thing ',
                         ' which ', ' bit ', ' luck ', ' ll ', ' great ', ' enough ', ' first ',
-                        ' between ', ' reply ', ' when ', ' does ', ' such ']
+                        ' between ', ' reply ', ' when ', ' does ', ' such ', 'therefore', ' more ',
+                        ' less ', ' than ', ' whatever ', ' however ', ' furthermore ', ' these ',
+                        ' often ', ' already ', ' never ', ' always ', ' least ', ' go ', ' well ',
+                        ' something ', ' somewhere ', ' somewhat ', ' mean ', ' too ', ' into ',
+                        ' between ', ' both ', ' over ', ' more ', ' somebody ', ' someone ',
+                        ' none ', ' non ', ' same ', ' those ', ' might ', ' monday ', ' don ',
+                        ' dunno ', ' wrong ', ' true ', ' false ', ' after ', ' today ', ' itself ',
+                        ' myself ', ' yourself ', ' himself ', ' herself ', ' ourselves ',
+                        ' themselves ', ' self ', ' yesterday ', ' tomorrow ', ' monday ', 'tuesday ',
+                        ' wednesday ', ' because ', ' sorry ', ' thursday ', ' friday ', ' saturday ',
+                        ' sunday ', ' time ', ' like ', ' likes ', ' soon ', ' enough ', ' around ',
+                        ' next ', ' neither ', ' either ', ' else ', ' anybody ', ' anyone ',
+                        ' month ', ' week ', ' weekend ', ' end ', ' start ', ' yet ', ' yep ',
+                        ' until ', ' till ', ' then ', ' away ', ' bad ', ' good ', ' high ',
+                        ' below ']
 
     #Replace each useless element by a space.
     for element in useless_elements:
