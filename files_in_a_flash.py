@@ -237,4 +237,23 @@ def check_accuracy(path):
         - a sub-directory named 'sorted' that countains the sorted files.
         - a sub-directory named 'unsorted' that countains the files to sort. (should be empty)
     """
-    pass
+    if os.path.exists('./' + path):
+
+        nb_files = len(os.listdir('./%s/unsorted' % path))
+        sorted_files = 0
+
+        label = open('./%s/labels.txt' % path, 'r')
+
+        for line in label.readlines():
+            solution = line.strip('\n').split(' ')
+            if os.path.exists('./' + path + '/sorted' + 'solution[1]' + 'solution[0]'):
+                sorted_files += 1
+            else:
+                sorted_files = sorted_files
+        label.close()
+        
+                
+        print(sorted_files / nb_files)
+
+    else :
+        print("insert a correct path")
